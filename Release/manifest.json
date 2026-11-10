@@ -1,0 +1,9 @@
+{
+  "name": "Enigmas_Snug_Fit",
+  "version_number": "0.1.18",
+  "website_url": "https://github.com/relinkem/Enigmas-Snug-Fit",
+  "description": "Spin, tilt and nudge hammer-placed pieces by small steps, snap a piece's middle onto another, and keep the key hints tidy. Vanilla feel, all configurable.",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.2351"
+  ]
+}
