@@ -2,7 +2,7 @@
 
 *Place it a little closer to how you meant it.*
 
-Spin, tilt and nudge a piece by small steps while you place it, snap its middle onto another piece, and sink a beam end into the ground without any creative-mode tools. It keeps the feel of vanilla placement: the scroll wheel still spins, snapping still snaps, and everything is a setting. It also tidies the key hints at the bottom of the screen. Client side, other players do not need it to see what you build.
+Spin, tilt and nudge a piece by small steps while you place it, snap its middle onto another piece, and sink a beam end into the ground without any creative-mode tools. It keeps the feel of vanilla placement: the scroll wheel still spins, snapping still snaps, and everything is a setting. Client side, other players do not need it to see what you build.
 
 ![Spinning and tilting a beam](https://raw.githubusercontent.com/relinkem/Enigmas-Snug-Fit/main/Release/media/rotate-beam.gif)
 
@@ -22,7 +22,6 @@ Scroll spins the piece in steps, hold Shift and scroll tilts it. The piece keeps
 - Snap center: Tab cycles a piece's snap points as in vanilla. For building pieces the cycle now ends with a Center point, which snaps the middle of your piece onto another piece's snap points and middles. Automatic snapping stays exactly as in vanilla.
 - Backspace clears the tilt and the nudge. Copy rotation also copies the tilt of the piece you copy.
 - Tilt and Nudge lines in the build key hints, so you do not have to remember the keys.
-- A cleaner screen with the hammer out: an empty strip is kept free along the bottom for the key hints, other on-screen elements are moved up out of it, the hint bar is a little smaller and centered, the box with the piece name and costs sits just above it, and the health bar of the piece under your crosshair is hidden while you place something (it still shows with Repair).
 - Controller support is built in (see Known issues).
 
 ## How it works
@@ -47,9 +46,6 @@ Settings are in `BepInEx/config/EnigmaPrime.EnigmasSnugFit.cfg` after the first 
 - 2 - Nudge: nudge on or off, step size, the three keys, the three limits, whether the nudge clears after placing.
 - 3 - Other: reset key, key hints on or off, the switch that turns rotation features off when another mod changes rotation.
 - 5 - Snap center: on or off, which piece categories get a Center point, extra pieces by name.
-- 6 - Reserved strip: on or off, strip height, a list of on-screen elements to leave where they are.
-- 7 - Hint bar: size, centering and sideways offset of the key hint bar.
-- 8 - Build panel: move the piece box above the strip, the gap, and hiding the piece health bar while placing.
 
 ## Multiplayer and servers
 
@@ -57,7 +53,6 @@ Client side only. A dedicated server does not need it. Multiplayer has not been 
 
 ## Compatibility
 
-- The screen changes move other mods' on-screen elements up out of the bottom strip. They were tested with Extra Slots. If something should stay where it is, add its name to "Never move these" in the settings, or turn the strip off.
 - Gizmo and other mods that rewrite the placement rotation code: spin step and tilt switch off, nudge keeps working. Using only one of them is simplest.
 - Snug Fit patches the placement ghost conservatively and does not replace vanilla code where it can avoid it.
 
@@ -111,7 +106,7 @@ Bug reports and ideas are just as welcome. Open an issue on [GitHub](https://git
 
 ## How this mod was made
 
-The ideas, the design, and every decision about how placing a piece should work are mine: keep it as close to vanilla as possible, tilt only the pieces where it looks right, keep the nudge small and limited, let Tab offer a center snap only for building pieces, and keep the key hints readable by reserving a clean strip at the bottom of the screen. However, I am not a programmer. The code was written by Claude, an AI assistant made by Anthropic, working from my direction through [Claude Code](https://claude.com/claude-code).
+The ideas, the design, and every decision about how placing a piece should work are mine: keep it as close to vanilla as possible, tilt only the pieces where it looks right, keep the nudge small and limited, let Tab offer a center snap only for building pieces. However, I am not a programmer. The code was written by Claude, an AI assistant made by Anthropic, working from my direction through [Claude Code](https://claude.com/claude-code).
 
 I want to be upfront about that. I am the one who plays the game, so I test every build in Valheim, read the game log for errors, and send back anything that looks or feels wrong until it behaves the way I intended. The code was also checked against Valheim's own code so it hooks in the right places. If you find a bug, please open an issue and I will work on a fix.
 
