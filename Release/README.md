@@ -14,6 +14,12 @@ Spin, tilt and nudge a piece by small steps while you place it, snap its middle 
 
 Scroll spins the piece in steps, hold Shift and scroll tilts it. The piece keeps snapping to what it is pointed at.
 
+### Nudge
+
+![Nudging a beam in small steps](https://raw.githubusercontent.com/relinkem/Enigmas-Snug-Fit/main/Release/media/nudge.gif)
+
+Hold Ctrl and scroll to move the piece up and down, hold Z and scroll for left and right, hold X and scroll for forward and back. Each click is 2 cm, up to 14 cm each way.
+
 ## Features
 
 - Spin step you can change. The scroll wheel works as in vanilla, 22.5 degrees per click by default.
