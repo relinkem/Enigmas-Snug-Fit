@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0
+Controls changed: please read the first two points.
+- Mode cycle: hold Shift and scroll to pick what the scroll wheel does: move left and right, move up and down, move forward and back, tilt (rotate X), spin (rotate Y) or roll (rotate Z). Let go of Shift and the plain scroll wheel works the mode you stopped on. The mode name shows in the middle of the screen, where vanilla shows the snap point. A new piece always starts in spin, as in vanilla.
+- The held keys are gone: Ctrl, Z and X nudge keys and the Shift tilt are replaced by the mode cycle. Their settings are removed, and the new setting is "Mode key" (Shift by default). Nudge step and limits are unchanged.
+- New: roll (rotate Z) for the pieces that can tilt, 22.5 degrees per click by default (setting "Roll step"). Backspace clears the tilt, roll and nudge.
+- Hint bar: one fixed "Mode  Shift + Scroll" row, and the game's own "Rotate" row is renamed "Adjust" because it now also moves and tilts the piece (setting "Rotate hint label", empty keeps the vanilla text).
+- Fix: spin step, tilt, roll and nudge now work together with Valheim Performance Optimizations and Plantations. Before, they did nothing when either was installed. Both mods are on a safe list, so they no longer switch spin step and tilt off.
+- Faster: less work every frame while placing and for the screen layout code, with the same behavior.
+- Controller (untested): hold the alt button and rotate to pick the mode, then rotate works the mode. Alt + right stick still nudges.
+
 ## 0.1.18
 First release.
 - Spin step is configurable (22.5 degrees by default, the scroll wheel works as in vanilla).

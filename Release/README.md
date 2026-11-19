@@ -2,37 +2,39 @@
 
 *Place it a little closer to how you meant it.*
 
-Spin, tilt and nudge a piece by small steps while you place it, snap its middle onto another piece, and sink a beam end into the ground without any creative-mode tools. It keeps the feel of vanilla placement: the scroll wheel still spins, snapping still snaps, and everything is a setting. Client side, other players do not need it to see what you build.
+Spin, tilt, roll and nudge a piece by small steps while you place it, snap its middle onto another piece, and sink a beam end into the ground without any creative-mode tools. It keeps the feel of vanilla placement: the scroll wheel still spins, snapping still snaps, and everything is a setting. Client side, other players do not need it to see what you build.
 
 ![Spinning and tilting a beam](https://raw.githubusercontent.com/relinkem/Enigmas-Snug-Fit/main/Release/media/rotate-beam.gif)
 
-## What it looks like
+## How to use it
 
-### Spin and tilt
+Hold the mode key (Shift) and scroll to pick what the scroll wheel does. The name of the mode shows in the middle of the screen. Let go of Shift and the plain scroll wheel works that mode. A new piece always starts in spin, so it behaves like vanilla until you change the mode.
 
-![Tilting a pole while placing it](https://raw.githubusercontent.com/relinkem/Enigmas-Snug-Fit/main/Release/media/tilt-pole.gif)
+The modes, in the order Shift + scroll steps through them:
 
-Scroll spins the piece in steps, hold Shift and scroll tilts it. The piece keeps snapping to what it is pointed at.
+1. Move left and right (follows the piece)
+2. Move up and down (world up, so a tilted piece still sinks straight down)
+3. Move forward and back (follows the front of the piece, kept level)
+4. Tilt (rotate around the piece's own X axis)
+5. Spin (rotate around the vertical axis, plain vanilla)
+6. Roll (rotate around the piece's own Z axis)
 
-### Nudge
-
-![Nudging a beam in small steps](https://raw.githubusercontent.com/relinkem/Enigmas-Snug-Fit/main/Release/media/nudge.gif)
-
-Hold Ctrl and scroll to move the piece up and down, hold Z and scroll for left and right, hold X and scroll for forward and back. Each click is 2 cm, up to 14 cm each way.
+Each move click is 2 cm, up to 14 cm each way. Tilt and roll are 22.5 degrees per click.
 
 ## Features
 
 - Spin step you can change. The scroll wheel works as in vanilla, 22.5 degrees per click by default.
-- Tilt: Shift + scroll tilts a building piece or an item stand around its own X axis, 22.5 degrees per click by default. Chests, furniture, armor stands and crafting stations only spin, as they do in vanilla. You can add more pieces in the settings.
-- Nudge in three directions, with the wheel and a held key: Ctrl + scroll up and down (world up, so a tilted piece still sinks straight down), hold Z and scroll left and right, hold X and scroll forward and back. 2 cm per click, up to 14 cm each way by default.
+- Mode cycle: Shift + scroll picks move left and right, up and down, forward and back, tilt, spin or roll. Plain scroll then works the picked mode.
+- Tilt and roll: building pieces and item stands can be tilted around their own X axis and rolled around their own Z axis, 22.5 degrees per click by default. Chests, furniture, armor stands and crafting stations only spin, as they do in vanilla. You can add more pieces in the settings.
+- Nudge in three directions, 2 cm per click, up to 14 cm each way by default.
 - Snap center: Tab cycles a piece's snap points as in vanilla. For building pieces the cycle now ends with a Center point, which snaps the middle of your piece onto another piece's snap points and middles. Automatic snapping stays exactly as in vanilla.
-- Backspace clears the tilt and the nudge. Copy rotation also copies the tilt of the piece you copy.
-- Tilt and Nudge lines in the build key hints, so you do not have to remember the keys.
+- Backspace clears the tilt, roll and nudge. Copy rotation also copies the tilt of the piece you copy.
+- A "Mode" line in the build key hints, and the game's own Rotate line renamed "Adjust", so you do not have to remember the keys.
 - Controller support is built in (see Known issues).
 
 ## How it works
 
-Pick a piece with the hammer and use the keys above. The changes are applied to the placement ghost before the game checks snapping and placing, so a tilted or nudged piece still snaps to joints and gets the usual placement checks. The nudge is added on top of the snapped position, so you can snap a beam end onto a crossing and then sink it a few centimeters.
+Pick a piece with the hammer and use the modes above. The changes are applied to the placement ghost before the game checks snapping and placing, so a tilted or nudged piece still snaps to joints and gets the usual placement checks. The nudge is added on top of the snapped position, so you can snap a beam end onto a crossing and then sink it a few centimeters.
 
 Snug Fit does not need or use Gizmo. If another mod rewrites the game's placement rotation code (Gizmo and similar), Snug Fit switches spin step and tilt off so the two do not fight, keeps nudge working, and writes the reason to the log.
 
@@ -48,9 +50,9 @@ To change settings in game, install Configuration Manager and press F1.
 
 Settings are in `BepInEx/config/EnigmaPrime.EnigmasSnugFit.cfg` after the first run:
 
-- 1 - Rotation: spin step, tilt on or off, tilt step and key, which pieces can tilt, whether tilt clears when the piece changes, copy tilt.
-- 2 - Nudge: nudge on or off, step size, the three keys, the three limits, whether the nudge clears after placing.
-- 3 - Other: reset key, key hints on or off, the switch that turns rotation features off when another mod changes rotation.
+- 1 - Rotation: spin step, tilt on or off, tilt step, roll step, mode key, which pieces can tilt, whether tilt clears when the piece changes, copy tilt.
+- 2 - Nudge: nudge on or off, step size, the three limits, whether the nudge clears after placing.
+- 3 - Other: reset key, key hints on or off, the label of the renamed Rotate hint, the switch that turns rotation features off when another mod changes rotation.
 - 5 - Snap center: on or off, which piece categories get a Center point, extra pieces by name.
 
 ## Multiplayer and servers
@@ -59,12 +61,14 @@ Client side only. A dedicated server does not need it. Multiplayer has not been 
 
 ## Compatibility
 
+- Valheim Performance Optimizations by OnTrigger and Plantations by Radamanto: safe to use together with Snug Fit (tested).
 - Gizmo and other mods that rewrite the placement rotation code: spin step and tilt switch off, nudge keeps working. Using only one of them is simplest.
 - Snug Fit patches the placement ghost conservatively and does not replace vanilla code where it can avoid it.
 
 ## Known issues
 
-- Controller support is built in (hold the alt button and rotate to tilt, hold it and use the right stick to nudge) but untested, please report problems. Forward and back nudge has no controller button yet.
+- Controller support is built in (hold the alt button and rotate to pick the mode, then rotate works the mode, hold the alt button and use the right stick to nudge) but untested, please report problems.
+- Copy rotation copies the tilt but not the roll.
 - Multiplayer is untested.
 - A nudged position is not checked against other pieces again, which is fine for a few centimeters.
 
